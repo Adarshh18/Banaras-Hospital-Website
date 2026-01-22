@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banaras Hospital</title>
+    <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<style>
+        :root {
+            --primary-color: #10B981;
+            --primary-dark: #059669;
+            --bg-dark: #1F2937;
+            --bg-dark-2: #374151;
+            --text-dark: #111827;
+            --text-light: #F9FAFB;
+            --bg-light: #ffffff;
+            --bg-grey: #f3f4f6;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            background: linear-gradient(90deg, #BAD5C9 0%, #E3CDD1 50%, #DDEAFE 100%);
+            background-color: #64d8f224;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            color: #6B7280;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.2rem 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+
+        .header.sticky {
+            background: var(--bg-dark);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 0.8rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        #hero {
+            min-height: 100vh;
+            background: linear-gradient(45deg, var(--bg-dark), var(--bg-dark-2), #111827, var(--bg-dark));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #D1D5DB;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .appointment-info {
+            color: var(--text-light);
+            font-weight: 500;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .appointment-info:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .appointment-info i {
+            margin-right: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        #about {
+            background: #64d8f224;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h3 {
+            color: #034370;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .count {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+        }
+
+        .stat-item p {
+            color: #6B7280;
+        }
+
+        /* ==== SERVICES SECTION (GALLERY HOVER EFFECT) ==== */
+        #services {
+            background: #64d8f224;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border-bottom: 4px solid transparent;
+            /* Snappy transition for upward movement */
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+        }
+
+        /* This creates the Gallery "Upward" effect */
+        .service-card:hover {
+            transform: translateY(-15px); 
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image scaling removed to match standard gallery lift */
+        .service-card:hover .service-card img {
+            transform: none; 
+        }
+
+        .service-card-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #730000;
+        }
+
+        /* ==== DOCTORS SECTION (GALLERY HOVER EFFECT) ==== */
+        #doctors {
+            background: #64d8f224;
+        }
+
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .doctor-card {
+            background: var(--bg-grey);
+            text-align: center;
+            border-radius: 10px;
+            overflow: hidden;
+            /* Snappy transition for upward movement */
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+        }
+
+        /* This creates the Gallery "Upward" effect */
+        .doctor-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .doctor-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .doctor-info {
+            padding: 1.5rem;
+        }
+
+        .doctor-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-info p {
+            color: #b91010;
+            font-weight: 500;
+        }
+
+        .doctor-availability {
+            font-size: 0.9rem;
+            color: #6B7280;
+            margin-top: 0.75rem;
+            font-weight: 400;
+        }
+
+        .doctor-availability i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--bg-dark);
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-dark);
+        }
+
+        #location {
+            background: #64d8f224;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .location-details h3 {
+            color: #034370;
+            font-size: 1.8rem;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1.5rem;
+            margin-top: 5px;
+            width: 30px;
+        }
+
+        .location-item p {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .location-item span {
+            display: block;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            color: #034370;
+            font-size: 1.8rem;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group select:invalid {
+            color: #6B7280;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .contact-form .btn {
+            align-self: flex-start;
+            border: none;
+            cursor: pointer;
+        }
+
+        #form-status {
+            margin-top: 1rem;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 500;
+            display: none;
+        }
+
+        #form-status.error {
+            background-color: #FEE2E2;
+            color: #991B1B;
+            display: block;
+        }
+
+        .footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 5rem 0 2rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-about .logo {
+            color: var(--text-light);
+        }
+
+        .footer-about p {
+            margin-top: 1rem;
+            color: #D1D5DB;
+        }
+
+        .footer h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--bg-dark-2);
+        }
+
+        .popup-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .popup-modal {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .popup-modal-overlay.active .popup-modal {
+            transform: scale(1);
+        }
+
+        .popup-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .popup-modal h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .popup-modal p {
+            color: #6B7280;
+            margin-bottom: 2rem;
+        }
+
+        /* ==== RESPONSIVE REFINEMENTS ==== */
+        @media(max-width: 992px) {
+            .hero-content, .about-content, .contact-content, .location-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-image { grid-row: 1; margin-bottom: 2rem; }
+            .hero-text { text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .about-image { margin-bottom: 2rem; }
+            .location-map { margin-bottom: 2rem; }
+        }
+
+        @media(max-width: 768px) {
+            .container { padding: 0 1rem; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-dark);
+                flex-direction: column;
+                padding: 1rem 0;
+                height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease-in-out;
+            }
+            .nav-links.active { height: 280px; }
+            .nav-links li { margin: 0; text-align: center; padding: 1rem 0; }
+            .header { background: var(--bg-dark); padding: 0.8rem 0; }
+            #hero h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .hero-text h1 { font-size: 2.5rem; }
+            section { padding: 4rem 0; }
+            .stats-container { flex-direction: column; gap: 1.5rem; }
+            .contact-content { padding: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container navbar"> <a href="#" class="logo">Banaras<span>Hospital</span></a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle"> <i class="fas fa-bars"></i> </div>
+        </div>
+    </header>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text" data-aos="fade-right">
+                        <h1>Advanced Care, <span>Personal Touch.</span></h1>
+                        <p>Welcome to Banaras Hospital — delivering quality healthcare with modern facilities and expert
+                            professionals.</p>
+                        <div class="hero-buttons"> <a href="#services" class="btn">Our Services</a>
+                            <a href="#contact" class="appointment-info">
+                                <i class="fas fa-phone"></i> For Appointment: +91-7545010725
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image" data-aos="fade-left"> <img src="bhimg.png" alt="Doctor with patient"> </div>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <h2 data-aos="fade-up">About Banaras Hospital</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"> A leading healthcare provider
+                    dedicated to quality, patient safety, and community wellness for over 10+ years. </p>
+                <div class="about-content">
+                    <div class="about-image" data-aos="fade-right" data-aos-delay="200"> <img src="bhlogimg.jpg"
+                            alt="Hospital Building"> </div>
+                    <div class="about-text" data-aos="fade-left" data-aos-delay="300">
+                        <h3>Your Health, Our Priority</h3>
+                        <p>Banaras Hospital, located at Banjari More, Gopalganj, Bihar, is a trusted multispecialty
+                            healthcare center dedicated to delivering quality medical care with compassion. We provide
+                            24×7 emergency services and feature an advanced ICU with ventilator facilities — the only
+                            hospital in the region offering this critical care support.<br><br>
+
+                            Our expert team of cardiologists, surgeons, and other medical specialists ensures the
+                            highest standard of treatment and care. From general surgeries to maternity and delivery
+                            services, Banaras Hospital is equipped with modern technology and experienced professionals
+                            committed to your health and recovery.
+                        </p>
+                        <div class="stats-container">
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="400"> <span class="count"
+                                    data-target="10">0</span>+ <p>Years of Experience</p>
+                            </div>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="500"> <span class="count"
+                                    data-target="50">0</span>+ <p>Expert Doctors</p>
+                            </div>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="600"> <span class="count"
+                                    data-target="10000">0</span>+ <p>Happy Patients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="services">
+            <div class="container">
+                <h2 data-aos="fade-up">Our Medical Services</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"> We offer a wide range of
+                    specialized medical services to meet all your health needs. </p>
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200"> <img src="Emergencyimg.png"
+                            alt="EMERGENCY">
+                        <div class="service-card-content">
+                            <h3>EMERGENCY CARE</h3>
+                            <p>24/7 emergency services delivering rapid, expert care in critical situations.</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300"> <img src="icuimg.png" alt="ICU">
+                        <div class="service-card-content">
+                            <h3>ICU</h3>
+                            <p>Advanced critical care for patients requiring continuous monitoring and life-support
+                                systems.</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400"> <img src="surgeryimg.png"
+                            alt="SURGERY">
+                        <div class="service-card-content">
+                            <h3>SURGERY</h3>
+                            <p>Advanced surgical procedures with minimally invasive techniques and robotic surgery.</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="500"> <img src="cardioimg.png"
+                            alt="CARDIOLOGY">
+                        <div class="service-card-content">
+                            <h3>CARDIOLOGY</h3>
+                            <p>Comprehensive heart care, from diagnostics to advanced surgical procedures.</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="600"> <img src="orthoimg.png"
+                            alt="Orthopedics">
+                        <div class="service-card-content">
+                            <h3>ORTHOPEDICS</h3>
+                            <p>Specialized care for musculoskeletal injuries and conditions.</p>
+                        </div>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="700"> <img src="pathologyimg.png"
+                            alt="Diagnostics">
+                        <div class="service-card-content">
+                            <h3>DIAGNOSTICS</h3>
+                            <p>Advanced imaging and laboratory services including Echo, Ultrasound, and blood tests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="doctors">
+            <div class="container">
+                <h2 data-aos="fade-up">Meet Our Expert Doctors</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"> Our team of highly qualified and
+                    experienced doctors is dedicated to your well-being. </p>
+                <div class="doctors-grid">
+                    <div class="doctor-card" data-aos="fade-up" data-aos-delay="200"> <img src="doc.1img.png"
+                            alt="Doctor 1">
+                        <div class="doctor-info">
+                            <h3>Dr. Praveen Tripathi (MBBS,MD)</h3>
+                            <p>General Physician</p>
+                            <p1 class="doctor-availability"><i class="fas fa-clock"></i> Everyday, 09AM - 06PM <br> FEE - 300/-</p1>
+                            <div class="social-links"> <a href="#"><i class="fab fa-facebook"></i></a> <a href="#"><i
+                                        class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-card" data-aos="fade-up" data-aos-delay="300"> <img src="doc2.jpg"
+                            alt="Doctor 2">
+                        <div class="doctor-info">
+                            <h3>Dr. Durgesh Tripathi (MBBS,MS)</h3>
+                            <p>General Surgeon</p>
+                            <p1 class="doctor-availability"><i class="fas fa-clock"></i> Every Sunday, 10AM - 02PM <br> FEE - 500/-</p1>
+                            <div class="social-links"> <a href="#"><i class="fab fa-facebook"></i></a> <a href="#"><i
+                                        class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doctor-card" data-aos="fade-up" data-aos-delay="400"> <img src="doc3img.png"
+                            alt="Doctor 3">
+                        <div class="doctor-info">
+                            <h3>Dr. Pramod Mishra (MBBS,DM)</h3>
+                            <p>Cardiologist</p>
+                            <p1 class="doctor-availability"><i class="fas fa-clock"></i> Every Saturday, 08AM - 12PM <br> FEE - 700/-
+                            </p1>
+                            <div class="social-links"> <a href="#"><i class="fab fa-facebook"></i></a> <a href="#"><i
+                                        class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="location">
+            <div class="container">
+                <h2 data-aos="fade-up">Our Location</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"> Visit our easily reachable facility
+                    equipped with modern medical infrastructure. </p>
+                <div class="location-grid">
+                    <div class="location-map" data-aos="fade-right" data-aos-delay="200">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14286.046330491694!2d84.4250216!3d26.4714683!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39930557d3464d77%3A0x78c5e926947fc716!2sBanaras%20Hospital%20Gopalganj!5e0!3m2!1sen!2sin!4v1760092671482!5m2!1sen!2sin"
+                            width="600" height="450" style="border:0; border-radius: 15px;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"
+                    </div>
+                    <div class="location-details" data-aos="fade-left" data-aos-delay="300">
+                        <h3>Visit Banaras Hospital</h3>
+                        <div class="location-item"> <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <p>Address</p> <span>Banjari More, NH 27, Gopalganj <br>Bihar - 841428</span>
+                            </div>
+                        </div>
+                        <div class="location-item"> <i class="fas fa-clock"></i>
+                            <div>
+                                <p>Opening Hours</p> <span>Mon - Sun: Open 24 Hours</span> <span>Emergency 24/7</span>
+                            </div>
+                        </div>
+                        <div class="location-item"> <i class="fas fa-phone-volume"></i>
+                            <div>
+                                <p>Emergency Line</p> <span>+91-7545010725</span>
+                            </div>
+                        </div>
+                        <div class="location-item"> <i class="fas fa-envelope"></i>
+                            <div>
+                                <p>Email</p> <span>info@banarashospital.com</span>
+                            </div>
+                        </div>
+                        <a href="https://maps.app.goo.gl/nec2z4cJ3yUnvSoNA" class="btn" target="_blank">Get
+                            Directions</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="container">
+                <h2 data-aos="fade-up">Book an Appointment</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                    Have a question or need to book an appointment? We're here to help.
+                </p>
+                <div class="contact-content">
+                    <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+                        <h3>Schedule Your Visit</h3>
+                        <p>Fill out the form and our team will get back to you shortly to confirm your appointment. For
+                            immediate assistance, please call us.</p><br>
+                        <div class="location-item"> <i class="fas fa-phone"></i>
+                            <div>
+                                <p>Reception Desk</p> <span>+91-7545010725</span>
+                            </div>
+                        </div>
+                        <div class="location-item"> <i class="fas fa-envelope"></i>
+                            <div>
+                                <p>General Inquiries</p> <span>contact@banarashospital.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form" data-aos="fade-left" data-aos-delay="300">
+                        <form id="contact-form" action="https://formspree.io/f/xyznpkeq" method="POST">
+                            <div class="form-group"><input type="text" name="Name" placeholder="Enter Name" required>
+                            </div>
+                            <div class="form-group"><input type="number" name="Number" placeholder="Enter Mobile Number"
+                                    required>
+                            </div>
+                            <div class="form-group"><input type="date" name="Date" required></div>
+                            <div class="form-group">
+                                <select name="Doctor" required>
+                                    <option value="" disabled selected>Select a Doctor</option>
+                                    <option value="Dr. Praveen Tripathi">Dr. Praveen Tripathi - General Physician
+                                    </option>
+                                    <option value="Dr. Durgesh Tripathi">Dr. Durgesh Tiwari - General Surgeon</option>
+                                    <option value="Dr. Pramod Mishra">Dr. Pramod Mishra - Cardiologist</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><textarea name="Message" rows="5"
+                                    placeholder="Your Message (Optional)"></textarea></div>
+                            <button type="submit" class="btn">Submit Request</button>
+                        </form>
+                        <p id="form-status"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-about"> <a href="#" class="logo">Banaras<span>Hospital</span></a>
+                <p>Leading the way in medical excellence and compassionate care.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#location">Location</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#">24/7 Emergency Care</a></li>
+                    <li><a href="#">Advanced ICU</a></li>
+                    <li><a href="#">Surgery</a></li>
+                    <li><a href="#">Cardiology</a></li>
+                    <li><a href="#">Orthopedics</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Connect With Us</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/banaras.hospital.9/">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Banaras Hospital. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==== NEW HTML FOR POP-UP MODAL ==== -->
+    <div class="popup-modal-overlay" id="popup-modal-overlay">
+        <div class="popup-modal">
+            <div class="popup-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Success!</h3>
+            <p>Your appointment request has been submitted successfully.</p>
+            <button class="btn" id="popup-close-btn">OK</button>
+        </div>
+    </div>
+    <!-- =================================== -->
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 120,
+        });
+
+        const header = document.querySelector('.header');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        window.addEventListener('scroll', () => { header.classList.toggle('sticky', window.scrollY > 50); });
+        menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { if (navLinks.classList.contains('active')) { navLinks.classList.remove('active'); } }); });
+        const counters = document.querySelectorAll('.count');
+        const speed = 200;
+        const animateCount = (counter) => { const target = +counter.getAttribute('data-target'); let count = 0; const increment = target / speed; const updateCount = () => { count += increment; if (count < target) { counter.innerText = Math.ceil(count); setTimeout(updateCount, 1); } else { counter.innerText = target; } }; updateCount(); };
+        const observer = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { animateCount(entry.target); observer.unobserve(entry.target); } }); }, { threshold: 0.5 });
+        counters.forEach(counter => { observer.observe(counter); });
+
+        // ==== MODIFIED JAVASCRIPT FOR FORM SUBMISSION & POP-UP ====
+        const form = document.getElementById("contact-form");
+        const status = document.getElementById("form-status");
+        const modalOverlay = document.getElementById("popup-modal-overlay");
+        const closeModalBtn = document.getElementById("popup-close-btn");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Show success pop-up instead of text
+                    modalOverlay.classList.add('active');
+                    form.reset();
+                    status.innerHTML = ""; // Clear any previous error messages
+                    status.className = "";
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oops! There was a problem submitting your form.";
+                        }
+                        status.className = 'error';
+                    })
+                }
+            }).catch(error => {
+                status.innerHTML = "Oops! There was a problem submitting your form.";
+                status.className = 'error';
+            });
+        }
+        form.addEventListener("submit", handleSubmit);
+
+        // Event listener to close the modal
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        // Optional: Close modal if user clicks on the overlay background
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+        // ========================================================
+    </script>
+</body>
+
+</html>
