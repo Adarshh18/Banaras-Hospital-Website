@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery | Banaras Hospital</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the Banaras Hospital infrastructure, facilities and care environment.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
+</head>
+
+<body>
+
+    <header class="gallery-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">Banaras <span>Hospital</span></a>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </header>
+
+    <section class="gallery-hero">
+        <div class="container">
+            <span class="section-eyebrow">Inside Banaras Hospital</span>
+            <h2>Our Gallery</h2>
+            <p>Explore our hospital infrastructure, facilities, and care environment.</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="masonry-grid">
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery1.jpg" alt="Gallery 1"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery2.jpg" alt="Gallery 2"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery3.jpg" alt="Gallery 3"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery4.jpg" alt="Gallery 4"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery5.jpg" alt="Gallery 5"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery6.jpg" alt="Gallery 6"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery7.jpg" alt="Gallery 7"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery8.jpg" alt="Gallery 8"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery9.jpg" alt="Gallery 9"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery10.jpg" alt="Gallery 10"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery11.jpg" alt="Gallery 11"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery12.jpg" alt="Gallery 12"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery13.jpg" alt="Gallery 13"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery14.jpg" alt="Gallery 14"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery15.jpg" alt="Gallery 15"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery16.jpg" alt="Gallery 16"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery17.jpg" alt="Gallery 17"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery18.jpg" alt="Gallery 18"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery19.jpg" alt="Gallery 19"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery20.jpg" alt="Gallery 20"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery21.jpg" alt="Gallery 21"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery22.jpg" alt="Gallery 22"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery23.jpg" alt="Gallery 23"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery24.jpg" alt="Gallery 24"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery25.jpg" alt="Gallery 25"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery26.jpg" alt="Gallery 26"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery27.jpg" alt="Gallery 27"></div></div>
+                <div class="gallery-item"><div class="img-frame"><img src="assets/images/gallery/gallery28.jpg" alt="Gallery 28"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="gallery-footer">
+        <p>&copy; 2024 Banaras Hospital. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Lightbox viewer -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close"><i class="fas fa-xmark"></i></button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-inner"><img id="lightbox-img" src="" alt="Enlarged gallery photo"></div>
+        <button class="lightbox-next" id="lightbox-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+        <span class="lightbox-counter" id="lightbox-counter"></span>
+    </div>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/gallery.js"></script>
+</body>
+</html>
